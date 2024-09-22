@@ -1,13 +1,13 @@
 # Physics with a Joystick
 ## About
-Simple physics simulation where you can shift gravity using a joystick. It runs on **HTML Canvas** with **JavaScript**.
+Simple physics simulation where you can manipulate gravity with a joystick. This project is built **HTML Canvas** and **JavaScript**.
 
 ## Settings
-You have to restart the simulation for changes to take place.
-- **Balls:** number of balls
-- **Substeps:** more stable but less performant as it increases
-- **Collision:** enables/disables collisions between balls
-- **Cannon:** launches the balls at the start of the simulation
+You have to restart the simulation for any change to take place.
+- **Balls:** Number of balls in the simulation.
+- **Substeps:** Increases stability at the cost of performance.
+- **Collision:** Toggles on-off collisions between balls.
+- **Cannon:** Launches the balls like a cannon at the start.
 
 ## License
 You may redistribute or modify this project under the [**MIT** license](LICENSE).
