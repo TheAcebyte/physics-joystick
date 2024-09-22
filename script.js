@@ -133,12 +133,12 @@ function resetSimulation() {
     setTimeout(startSimulation, resetDelay);
 }
 
-canvas.width = window.screen.innerWidth;
-canvas.height = window.screen.innerHeight;
+canvas.width = document.body.clientWidth;
+canvas.height = document.body.clientHeight;
 
 window.addEventListener('resize', () => {
-    canvas.width = window.screen.innerWidth;
-    canvas.height = window.screen.innerHeight;
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
 });
 
 /**
