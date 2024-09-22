@@ -42,7 +42,7 @@ class Slider {
     }
 
     /**
-     * Handles mouse clicking and moving events.
+     * Handles mouse/touch events.
      * @param {Event} event
      */
 
@@ -83,12 +83,27 @@ class Slider {
             this.handleClick(event);
         });
 
+        this.parent.addEventListener('touchdown', (event) => {
+            active = true;
+            this.handleClick(event);
+        });
+
         window.addEventListener('mouseup', () => {
             active = false;
             document.body.style.cursor = 'default';
         });
 
+        window.addEventListener('touchup', () => {
+            active = false;
+        });
+
         window.addEventListener('mousemove', (event) => {
+            if (active) {
+                this.handleClick(event);
+            }
+        });
+
+        window.addEventListener('touchmove', (event) => {
             if (active) {
                 this.handleClick(event);
             }

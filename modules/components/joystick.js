@@ -66,7 +66,7 @@ class Joystick {
     }
 
     /**
-     * Handles mousedown and mousemove events.
+     * Handles mouse/touch events.
      * @param {Event} event
      */
 
@@ -105,12 +105,31 @@ class Joystick {
             }
         });
 
+        this.joystickElement.addEventListener('touchdown', (event) => {
+            if (this.enabled) {
+                active = true;
+                document.body.style.cursor = 'pointer';
+                this.handleClick(event);
+            }
+        });
+
         window.addEventListener('mouseup', () => {
             active = false;
             document.body.style.cursor = 'default';
         });
 
+        window.addEventListener('touchup', () => {
+            active = false;
+            document.body.style.cursor = 'default';
+        });
+
         window.addEventListener('mousemove', (event) => {
+            if (active) {
+                this.handleClick(event);
+            }
+        });
+
+        window.addEventListener('touchmove', (event) => {
             if (active) {
                 this.handleClick(event);
             }
