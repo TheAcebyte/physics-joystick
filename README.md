@@ -10,4 +10,4 @@ You have to restart the simulation for changes to take place.
 - **Cannon:** launches the balls at the start of the simulation
 
 ## License
-You may redistribute or modify *bar* under the [**MIT** license](LICENSE).
+You may redistribute or modify this project under the [**MIT** license](LICENSE).
