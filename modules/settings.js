@@ -33,7 +33,7 @@ cog.addEventListener('click', () => {
 
 const settingsConfig = {
     numBalls: {
-        description: 'Number of Balls',
+        description: 'Balls',
         type: 'slider',
         min: 100,
         max: 1000,
@@ -42,7 +42,7 @@ const settingsConfig = {
     },
 
     numSubsteps: {
-        description: 'Number of Substeps',
+        description: 'Substeps',
         type: 'slider',
         min: 1,
         max: 12,
