@@ -1,5 +1,6 @@
 import { Slider } from './components/slider.js';
 import { Button } from './components/button.js';
+import { mapRange } from './utils.js';
 
 const cog = document.querySelector('#cog');
 const sidebar = document.querySelector('.sidebar');
@@ -37,7 +38,7 @@ const settingsConfig = {
         min: 100,
         max: 1000,
         step: 50,
-        default: 300
+        default: 100
     },
 
     numSubsteps: {
@@ -56,10 +57,25 @@ const settingsConfig = {
     },
 
     cannon: {
-        description: 'Cannon Launch',
+        description: 'Cannon',
         type: 'button',
         default: false
     }
+}
+
+const width = document.body.clientWidth;
+
+if (width >= 1400) {
+    settingsConfig.numBalls.default = 400;
+}
+else if (width >= 1000) {
+    settingsConfig.numBalls.default = 300;
+}
+else if (width >= 600) {
+    settingsConfig.numBalls.default = 200;
+}
+else {
+    settingsConfig.numBalls.default = 100;
 }
 
 for (const setting in settingsConfig) {

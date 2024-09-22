@@ -11,21 +11,20 @@
     --grey-800: #424242;
     --grey-900: #212121;
     
-    
     --default-bg-color: #000000;
-    --button-bg-color: hsl(354, 100%, 90%);
+    --reset-bg-color: hsl(354, 100%, 90%);
     --canvas-bg-color: hsl(240, 15%, 10%);
     --sidebar-bg-color: hsl(240, 10%, 15%);
     --joystick-bg-color: rgba(255, 255, 255, 0.1);
     
-    --button-text-color: hsl(1, 83%, 60%);
     --sidebar-line-color: hsl(240, 5%, 30%);
     --slider-empty-color: hsl(240, 5%, 75%);
     --slider-fill-color: hsl(240, 10%, 55%);
     
     --button-enabled-color: hsl(240, 10%, 55%);
     --button-disabled-color: hsl(240, 5%, 65%);
-
+    
+    --reset-text-color: hsl(1, 83%, 60%);
     --translate-offset: 100px;
 }
 
@@ -45,7 +44,7 @@ body {
     background-color: var(--default-bg-color);
     position: relative;
     overflow: hidden;
-    height: 100vh;
+    height: 100dvh;
 }
 
 .container {
@@ -274,8 +273,8 @@ body {
 }
 
 .sidebar #reset {
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
+    background-color: var(--reset-bg-color);
+    color: var(--reset-text-color);
     padding: 0.75rem 1.25rem;
     font-size: 1.125rem;
     font-weight: 600;
@@ -286,7 +285,7 @@ body {
 
 .sidebar #reset:hover {
     cursor: pointer;
-    background-color: var(--button-text-color);
+    background-color: var(--reset-text-color);
     color: var(--grey-200);
 }
 
@@ -357,5 +356,15 @@ body {
 
     .container .sidebar {
         width: 300px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container .sidebar {
+        width: 250px;
+    }
+
+    .settings h2 {
+        font-size: 1rem;
     }
 }
