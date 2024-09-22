@@ -45,7 +45,7 @@ function startSimulation() {
     const mass = [5, 10];
     const radius = [10, 15];
     const baseColor = { r: 75, g: 160, b: 235 };
-    const ratioColor = 0.75;
+    const ratioColor = 0.8;
     
     joystick.setState(0, 1);
     joystick.updateJoystick();
