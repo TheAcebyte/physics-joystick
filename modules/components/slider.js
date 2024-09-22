@@ -43,12 +43,12 @@ class Slider {
 
     /**
      * Handles mouse/touch events.
-     * @param {Event} event
+     * @param {number} x
      */
 
-    handleClick(event) {
+    handleClick(x) {
         const bounds = this.sliderElement.getBoundingClientRect();
-        const x = event.x - bounds.x;
+        x -= bounds.x
 
         if (x < 0 || x > bounds.width) {
             return;
@@ -80,13 +80,12 @@ class Slider {
         this.parent.addEventListener('mousedown', (event) => {
             active = true;
             document.body.style.cursor = 'pointer';
-            this.handleClick(event);
+            this.handleClick(event.x);
         });
 
-        this.parent.addEventListener('touchdown', (event) => {
-            event.preventDefault();
+        this.parent.addEventListener('touchstart', (event) => {
             active = true;
-            this.handleClick(event);
+            this.handleClick(event.touches[0].clientX);
         });
 
         window.addEventListener('mouseup', () => {
@@ -94,21 +93,19 @@ class Slider {
             document.body.style.cursor = 'default';
         });
 
-        window.addEventListener('touchup', (event) => {
-            event.preventDefault();
+        window.addEventListener('touchend', () => {
             active = false;
         });
         
         window.addEventListener('mousemove', (event) => {
             if (active) {
-                this.handleClick(event);
+                this.handleClick(event.x);
             }
         });
         
         window.addEventListener('touchmove', (event) => {
-            event.preventDefault();
             if (active) {
-                this.handleClick(event);
+                this.handleClick(event.touches[0].clientX);
             }
         });
     }

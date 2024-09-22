@@ -67,18 +67,19 @@ class Joystick {
 
     /**
      * Handles mouse/touch events.
-     * @param {Event} event
+     * @param {number} x
+     * @param {number} y
      */
 
-    handleClick(event) {
+    handleClick(x, y) {
         const bounds = this.joystickElement.getBoundingClientRect()
         const radius = bounds.height >> 1;
 
         const centerX = bounds.x + radius;
         const centerY = bounds.y + radius;
 
-        this.state.x = (event.x - centerX) / radius;
-        this.state.y = (event.y - centerY) / radius;
+        this.state.x = (x - centerX) / radius;
+        this.state.y = (y - centerY) / radius;
         const distance = getLength(this.state.x, this.state.y);
 
         if (distance > 1) {
@@ -101,16 +102,14 @@ class Joystick {
             if (this.enabled) {
                 active = true;
                 document.body.style.cursor = 'pointer';
-                this.handleClick(event);
+                this.handleClick(event.x, event.y);
             }
         });
 
-        this.joystickElement.addEventListener('touchdown', (event) => {
-            event.preventDefault();
+        this.joystickElement.addEventListener('touchstart', (event) => {
             if (this.enabled) {
                 active = true;
-                document.body.style.cursor = 'pointer';
-                this.handleClick(event);
+                this.handleClick(event.touches[0].clientX, event.touches[0].clientY);
             }
         });
         
@@ -119,22 +118,19 @@ class Joystick {
             document.body.style.cursor = 'default';
         });
         
-        window.addEventListener('touchup', (event) => {
-            event.preventDefault();
+        window.addEventListener('touchend', () => {
             active = false;
-            document.body.style.cursor = 'default';
         });
-        
+
         window.addEventListener('mousemove', (event) => {
             if (active) {
-                this.handleClick(event);
+                this.handleClick(event.x, event.y);
             }
         });
 
         window.addEventListener('touchmove', (event) => {
-            event.preventDefault();
             if (active) {
-                this.handleClick(event);
+                this.handleClick(event.touches[0].clientX, event.touches[0].clientY);
             }
         });
     }
