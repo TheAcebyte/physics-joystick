@@ -84,6 +84,7 @@ class Slider {
         });
 
         this.parent.addEventListener('touchdown', (event) => {
+            event.preventDefault();
             active = true;
             this.handleClick(event);
         });
@@ -93,17 +94,19 @@ class Slider {
             document.body.style.cursor = 'default';
         });
 
-        window.addEventListener('touchup', () => {
+        window.addEventListener('touchup', (event) => {
+            event.preventDefault();
             active = false;
         });
-
+        
         window.addEventListener('mousemove', (event) => {
             if (active) {
                 this.handleClick(event);
             }
         });
-
+        
         window.addEventListener('touchmove', (event) => {
+            event.preventDefault();
             if (active) {
                 this.handleClick(event);
             }

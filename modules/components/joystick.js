@@ -106,23 +106,25 @@ class Joystick {
         });
 
         this.joystickElement.addEventListener('touchdown', (event) => {
+            event.preventDefault();
             if (this.enabled) {
                 active = true;
                 document.body.style.cursor = 'pointer';
                 this.handleClick(event);
             }
         });
-
+        
         window.addEventListener('mouseup', () => {
             active = false;
             document.body.style.cursor = 'default';
         });
-
-        window.addEventListener('touchup', () => {
+        
+        window.addEventListener('touchup', (event) => {
+            event.preventDefault();
             active = false;
             document.body.style.cursor = 'default';
         });
-
+        
         window.addEventListener('mousemove', (event) => {
             if (active) {
                 this.handleClick(event);
@@ -130,6 +132,7 @@ class Joystick {
         });
 
         window.addEventListener('touchmove', (event) => {
+            event.preventDefault();
             if (active) {
                 this.handleClick(event);
             }
