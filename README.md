@@ -1,6 +1,6 @@
 # Physics with a Joystick
 ## About
-Simple physics simulation running on **htmlCanvas** with **JavaScript**.
+Simple physics simulation where you can shift gravity using a joystick. It runs on **htmlCanvas** with **JavaScript**.
 
 ## Settings
 You have to restart the simulation for changes to take place.
