@@ -36,9 +36,14 @@
     margin: 0;
 }
 
+body, html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--default-bg-color);
+    position: relative;
     overflow: hidden;
     height: 100vh;
 }
