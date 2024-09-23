@@ -48,7 +48,7 @@ function startSimulation() {
     const baseColor = { r: 75, g: 160, b: 235 };
     const ratioColor = 0.8;
     
-    joystick.setState(0, 1);
+    joystick.setDefault();
     joystick.updateJoystick();
     callback.call(joystick);
     
@@ -154,11 +154,10 @@ function callback() {
 const joystick = new Joystick(wrapper, callback, 0, 1);
 joystick.toggle();
 
+cog.addEventListener('click', toggleSidebar);
 resetButton.addEventListener('click', () => {
     resetSimulation();
     toggleSidebar();
 });
-
-cog.addEventListener('click', toggleSidebar);
 
 main();

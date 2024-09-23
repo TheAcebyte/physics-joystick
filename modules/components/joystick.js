@@ -43,6 +43,15 @@ class Joystick {
     }
 
     /**
+     * Sets the joystick's state back to default.
+     */
+
+    setDefault() {
+        this.setState(0, 1);
+        this.joystickElement.classList.remove('golden');
+    }
+
+    /**
      * Sets the joystick's state.
      * @param {number} x 
      * @param {number} y 
