@@ -6,7 +6,6 @@ import { Ball } from './ball.js';
  */
 
 class Engine {
-
     /**
      * Initialises the physics engine.
      * @param {HTMLElement} canvas 

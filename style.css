@@ -23,6 +23,9 @@
     
     --button-enabled-color: hsl(240, 10%, 55%);
     --button-disabled-color: hsl(240, 5%, 65%);
+
+    --joystick-outer-color: #ffd54f;
+    --joystick-inner-color: #ff8f00;
     
     --reset-text-color: hsl(1, 83%, 60%);
     --translate-offset: 100px;
@@ -329,6 +332,16 @@ body {
 
 .container .joystick.enabled .circle {
     background-color: var(--grey-200);
+}
+
+.container .joystick.golden {
+    border: 4px solid var(--joystick-inner-color);
+    outline: 4px solid var(--joystick-outer-color);
+    cursor: pointer;
+}
+
+.container .joystick.golden .circle {
+    background-color: var(--joystick-outer-color);
 }
 
 .container .icon {

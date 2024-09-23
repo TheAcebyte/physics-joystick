@@ -72,6 +72,7 @@ class Ball {
     setStatic(isStatic) {
         this.static = isStatic;
     }
+
     /**
      * Applies the Verlet integration equation to compute the new position.
      * @param {number} dt - Delta.

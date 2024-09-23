@@ -1,4 +1,4 @@
-import { getLength } from '../utils.js';
+import { trunc, getLength } from '../utils.js';
 
 /**
  * Joystick component.
@@ -87,6 +87,22 @@ class Joystick {
             this.state.y = this.state.y / distance;
         }
         
+        this.state.x = trunc(this.state.x, 2);
+        this.state.y = trunc(this.state.y, 2);
+
+        if (this.state.x == 0 && this.state.y == 0) {
+            const confirmationDelay = 50;
+
+            setTimeout(() => {
+                if (this.state.x == 0 && this.state.y == 0) {
+                    this.joystickElement.classList.add('golden');
+                }
+            }, confirmationDelay);
+        } 
+        else {
+            this.joystickElement.classList.remove('golden');
+        }
+
         this.updateJoystick();
         this.callback.call(this);
     }
