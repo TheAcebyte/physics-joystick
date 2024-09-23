@@ -1,19 +1,17 @@
 import { Slider } from './components/slider.js';
 import { Button } from './components/button.js';
-import { mapRange } from './utils.js';
 
-const cog = document.querySelector('#cog');
 const sidebar = document.querySelector('.sidebar');
 const wrapper = document.querySelector('.settings');
-
-/**
- * Indicates whether the sidebar is active or not.
- * @type {boolean}
- */
+const cog = document.querySelector('#cog');
 
 let activeSidebar = false;
 
-cog.addEventListener('click', () => {
+/**
+ * Toggles the sidebar on-off.
+ */
+
+function toggleSidebar() {
     activeSidebar = !activeSidebar;
     
     if (activeSidebar) {
@@ -24,7 +22,7 @@ cog.addEventListener('click', () => {
         cog.style.rotate = '0deg';
         sidebar.style.translate = '100%';
     }
-});
+}
 
 /**
  * Configuration of settings. Either a slider or a button.
@@ -124,4 +122,4 @@ function requestState(setting) {
     return settingsConfig[setting].component.state;
 }
 
-export { requestState };
+export { toggleSidebar, requestState };

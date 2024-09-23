@@ -1,14 +1,15 @@
 import { Ball } from './modules/physics/ball.js';
 import { Engine } from './modules/physics/engine.js';
 import { Joystick } from './modules/components/joystick.js';
-import { randomInt } from './modules/utils.js';
-import { generateColor } from './modules/utils.js';
 import { animateOverlay } from './modules/animation.js';
-import { requestState } from './modules/settings.js';
+import { randomInt, generateColor } from './modules/utils.js';
+import { toggleSidebar, requestState } from './modules/settings.js';
 
 const resetButton = document.querySelector('#reset');
 const wrapper = document.querySelector('.joystick-wrapper');
 const canvas = document.querySelector('#canvas');
+const cog = document.querySelector('#cog');
+
 const engine = new Engine(canvas);
 
 let cancelSpawn = false;
@@ -153,6 +154,11 @@ function callback() {
 const joystick = new Joystick(wrapper, callback, 0, 1);
 joystick.toggle();
 
-resetButton.addEventListener('click', resetSimulation);
+resetButton.addEventListener('click', () => {
+    resetSimulation();
+    toggleSidebar();
+});
+
+cog.addEventListener('click', toggleSidebar);
 
 main();
